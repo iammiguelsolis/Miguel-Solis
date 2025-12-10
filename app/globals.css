@@ -1,1 +1,177 @@
 @import "tailwindcss";
+@import "keen-slider/keen-slider.min.css";
+
+html {
+  scroll-behavior: smooth;
+}
+
+section[id] {
+  scroll-margin-top: 5rem;
+}
+
+:root {
+  /* --- PALETA EXTENDIDA (100-900) --- */
+
+  /* 1. IVORY (Tus neutros cálidos) 
+     Base original: #E9E6E4 (aprox Ivory-200) */
+  --color-ivory-50:  #fbfaf9;
+  --color-ivory-100: #f5f2f0;
+  --color-ivory-200: #e9e6e4; /* Tu color base */
+  --color-ivory-300: #dcd8d5;
+  --color-ivory-400: #c5bfba;
+  --color-ivory-500: #a8a09a;
+  --color-ivory-600: #8a807a;
+  --color-ivory-700: #6e645e;
+  --color-ivory-800: #544b46;
+  --color-ivory-900: #3d3530;
+
+  /* 2. BLUSH (Rosas suaves)
+     Base original: #EBCDC4 (aprox Blush-300) */
+  --color-blush-50:  #fcf6f5;
+  --color-blush-100: #f9ebe6;
+  --color-blush-200: #f4dcd6;
+  --color-blush-300: #ebcdc4; /* Tu color base */
+  --color-blush-400: #dfb2a6;
+  --color-blush-500: #cf9384;
+  --color-blush-600: #b86e5c;
+  --color-blush-700: #964f40;
+  --color-blush-800: #75392d;
+  --color-blush-900: #52241b;
+
+  /* 3. COFFEE (Marrones tierra)
+     Base original: #D5B09C (aprox Coffee-400) */
+  --color-coffee-50:  #fbf7f5;
+  --color-coffee-100: #f5ede9;
+  --color-coffee-200: #ebdcd3;
+  --color-coffee-300: #e0c6b7;
+  --color-coffee-400: #d5b09c; /* Tu color base */
+  --color-coffee-500: #c29279;
+  --color-coffee-600: #a67258;
+  --color-coffee-700: #855740;
+  --color-coffee-800: #66402d;
+  --color-coffee-900: #452a1d;
+
+  /* 4. SAGE (Verdes grisáceos)
+     Base original: #7E9693 (aprox Sage-500) */
+  --color-sage-50:  #f2f5f4;
+  --color-sage-100: #e3e9e8;
+  --color-sage-200: #ccd6d4;
+  --color-sage-300: #b0c0be;
+  --color-sage-400: #96aca9;
+  --color-sage-500: #7e9693; /* Tu color base */
+  --color-sage-600: #627a77;
+  --color-sage-700: #4b605e;
+  --color-sage-800: #374746;
+  --color-sage-900: #243030;
+
+  /* 5. FOREST (Verdes profundos/Petrol)
+     Base original: #204045 (aprox Forest-900) */
+  --color-forest-50:  #ebf0f1;
+  --color-forest-100: #d4e0e2;
+  --color-forest-200: #b0c6ca;
+  --color-forest-300: #86a6ad;
+  --color-forest-400: #5f858d;
+  --color-forest-500: #41676f;
+  --color-forest-600: #325158;
+  --color-forest-700: #273f45;
+  --color-forest-800: #1e2f33;
+  --color-forest-900: #204045; /* Tu color base (muy oscuro) */
+
+  /* --- VARIABLES SEMÁNTICAS (ROLES) --- */
+  /* Usamos tonos específicos de las escalas de arriba */
+  --background: var(--color-ivory-50);
+  --foreground: var(--color-forest-900);
+  
+  --accent: var(--color-sage-600);
+  --muted: var(--color-coffee-300);
+  --border: var(--color-sage-200);
+}
+
+@theme inline {
+  /* Variables Base */
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-accent: var(--accent);
+  --color-muted: var(--muted);
+  --color-border: var(--border);
+
+  /* ESCALAS COMPLETAS EXPORTADAS A TAILWIND */
+  
+  /* Ahora puedes usar: bg-ivory-100, text-ivory-900 */
+  --color-ivory-50: var(--color-ivory-50);
+  --color-ivory-100: var(--color-ivory-100);
+  --color-ivory-200: var(--color-ivory-200);
+  --color-ivory-300: var(--color-ivory-300);
+  --color-ivory-400: var(--color-ivory-400);
+  --color-ivory-500: var(--color-ivory-500);
+  --color-ivory-600: var(--color-ivory-600);
+  --color-ivory-700: var(--color-ivory-700);
+  --color-ivory-800: var(--color-ivory-800);
+  --color-ivory-900: var(--color-ivory-900);
+
+  /* Blush */
+  --color-blush-50: var(--color-blush-50);
+  --color-blush-100: var(--color-blush-100);
+  --color-blush-200: var(--color-blush-200);
+  --color-blush-300: var(--color-blush-300);
+  --color-blush-400: var(--color-blush-400);
+  --color-blush-500: var(--color-blush-500);
+  --color-blush-600: var(--color-blush-600);
+  --color-blush-700: var(--color-blush-700);
+  --color-blush-800: var(--color-blush-800);
+  --color-blush-900: var(--color-blush-900);
+
+  /* Coffee */
+  --color-coffee-50: var(--color-coffee-50);
+  --color-coffee-100: var(--color-coffee-100);
+  --color-coffee-200: var(--color-coffee-200);
+  --color-coffee-300: var(--color-coffee-300);
+  --color-coffee-400: var(--color-coffee-400);
+  --color-coffee-500: var(--color-coffee-500);
+  --color-coffee-600: var(--color-coffee-600);
+  --color-coffee-700: var(--color-coffee-700);
+  --color-coffee-800: var(--color-coffee-800);
+  --color-coffee-900: var(--color-coffee-900);
+
+  /* Sage */
+  --color-sage-50: var(--color-sage-50);
+  --color-sage-100: var(--color-sage-100);
+  --color-sage-200: var(--color-sage-200);
+  --color-sage-300: var(--color-sage-300);
+  --color-sage-400: var(--color-sage-400);
+  --color-sage-500: var(--color-sage-500);
+  --color-sage-600: var(--color-sage-600);
+  --color-sage-700: var(--color-sage-700);
+  --color-sage-800: var(--color-sage-800);
+  --color-sage-900: var(--color-sage-900);
+
+  /* Forest */
+  --color-forest-50: var(--color-forest-50);
+  --color-forest-100: var(--color-forest-100);
+  --color-forest-200: var(--color-forest-200);
+  --color-forest-300: var(--color-forest-300);
+  --color-forest-400: var(--color-forest-400);
+  --color-forest-500: var(--color-forest-500);
+  --color-forest-600: var(--color-forest-600);
+  --color-forest-700: var(--color-forest-700);
+  --color-forest-800: var(--color-forest-800);
+  --color-forest-900: var(--color-forest-900);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    /* Invertimos roles para modo oscuro */
+    --background: var(--color-forest-900);
+    --foreground: var(--color-ivory-50);
+    
+    --accent: var(--color-blush-400);
+    --muted: var(--color-sage-700);
+    --border: var(--color-sage-800);
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: var(--font-sans), Arial, sans-serif;
+}
