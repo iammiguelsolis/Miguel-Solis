@@ -23,26 +23,34 @@ export default function Hero() {
         
         <div className="space-y-8 order-2 lg:order-1">
           
-          <motion.div 
-            initial={{ opacity: 0, y: -20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-          >
+          <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
             <StatusBadge text="DISPONIBLE PARA PROYECTOS" />
           </motion.div>
 
           <div className="space-y-2">
             <h2 className="text-xl font-mono text-sage-600 font-semibold tracking-wide">
-              Hola, soy
+              Hello, my name is
             </h2>
             
-            <div className="text-5xl md:text-7xl font-extrabold text-forest-900 tracking-tight leading-none">
-               <TypewriterText text="Miguel Solis" delay={5} />
-            </div>
+            <h1 className="text-5xl md:text-7xl font-extrabold text-forest-900 tracking-tight leading-none mb-4">
+               Miguel Solis
+            </h1>
 
-            <div className="h-16 md:h-20 flex items-center">
-               <span className="text-3xl md:text-5xl font-bold text-transparent bg-clip-text bg-gradient-to-r from-coffee-500 to-blush-500">
-                 Desarrollador Full Stack
+            <div className="h-16 md:h-20 flex items-center text-3xl md:text-5xl font-bold">
+               <span className="text-forest-700 mr-3">{"I'm a"}</span>
+               
+               <span className="text-transparent bg-clip-text bg-gradient-to-r from-coffee-500 to-blush-500">
+                 <TypewriterText 
+                    words={[
+                      "Software Engineer",
+                      "Full Stack Developer", 
+                      "Tech Enthusiast", 
+                      "Problem Solver",
+                    ]} 
+                    typingSpeed={100}
+                    deletingSpeed={50}
+                    pauseTime={1500}
+                 />
                </span>
             </div>
           </div>
@@ -50,17 +58,16 @@ export default function Hero() {
           <motion.p 
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
-            transition={{ delay: 1.5, duration: 0.8 }}
+            transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg text-forest-700 max-w-lg leading-relaxed"
           >
-            Creo experiencias digitales bonitas y funcionales. Me especializo en 
-            llevar ideas a la vida a través de código limpio y diseño bien pensado.
+            I create beautiful and functional digital experiences. I specialize in bringing ideas to life through clean code and thoughtful design.
           </motion.p>
 
           <motion.div 
              initial={{ opacity: 0, y: 20 }}
              animate={{ opacity: 1, y: 0 }}
-             transition={{ delay: 2, duration: 0.5 }}
+             transition={{ delay: 0.8, duration: 0.5 }}
              className="flex flex-col sm:flex-row gap-6 items-start sm:items-center pt-4"
           >
             <div className="flex gap-4">
