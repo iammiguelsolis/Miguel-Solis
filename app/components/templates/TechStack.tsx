@@ -220,7 +220,7 @@ export default function TechStack() {
         >
           <Wrench className="w-8 h-8 text-coffee-500" />
           <h2 className="text-3xl md:text-4xl font-bold text-forest-900">
-            Tech Stack
+            Tecnologías
           </h2>
         </motion.div>
 
