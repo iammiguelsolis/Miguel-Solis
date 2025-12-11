@@ -1,13 +1,18 @@
 "use client";
-import { motion, useMotionValue, useSpring, useTransform } from "framer-motion";
+import React, { useState, useRef } from "react";
+import { motion, useMotionValue, useSpring, useTransform, AnimatePresence } from "framer-motion";
 import Image from "next/image";
+
+const avatarImages = ["/1.png", "/2.png", "/3.png"];
 
 export default function AvatarCard() {
   const x = useMotionValue(0);
   const y = useMotionValue(0);
-
   const mouseX = useSpring(x, { stiffness: 500, damping: 50 });
   const mouseY = useSpring(y, { stiffness: 500, damping: 50 });
+
+  const rotateX = useTransform(mouseY, [-100, 100], [15, -15]);
+  const rotateY = useTransform(mouseX, [-100, 100], [-15, 15]);
 
   function onMouseMove({ currentTarget, clientX, clientY }: React.MouseEvent) {
     const { left, top, width, height } = currentTarget.getBoundingClientRect();
@@ -15,33 +20,74 @@ export default function AvatarCard() {
     y.set(clientY - top - height / 2);
   }
 
-  const rotateX = useTransform(mouseY, [-100, 100], [15, -15]);
-  const rotateY = useTransform(mouseX, [-100, 100], [-15, 15]);
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const intervalRef = useRef<NodeJS.Timeout | null>(null);
+
+  const handleMouseEnter = () => {
+    if (intervalRef.current) clearInterval(intervalRef.current);
+    intervalRef.current = setInterval(() => {
+      setCurrentImageIndex((prevIndex) => (prevIndex + 1) % avatarImages.length);
+    }, 600);
+  };
+
+  const handleMouseLeave = () => {
+    if (intervalRef.current) {
+      clearInterval(intervalRef.current);
+      intervalRef.current = null;
+    }
+    x.set(0);
+    y.set(0);
+  };
 
   return (
     <motion.div
       style={{ perspective: 1000 }}
-      className="w-full max-w-sm mx-auto"
+      className="w-full max-w-sm mx-auto h-full flex items-center justify-center" // Centrado
     >
       <motion.div
         onMouseMove={onMouseMove}
-        onMouseLeave={() => { x.set(0); y.set(0); }}
+        onMouseEnter={handleMouseEnter}
+        onMouseLeave={handleMouseLeave}
         style={{ rotateX, rotateY }}
-        className="relative aspect-square rounded-3xl bg-ivory-200 border-4 border-ivory-100 shadow-2xl overflow-hidden cursor-pointer"
-        whileHover={{ scale: 1.05 }}
+        // LIMPIEZA AQUÍ: Quitamos shadow-2xl, rounded-3xl, overflow-hidden y bordes.
+        // Ahora es solo un contenedor invisible del tamaño de la imagen.
+        className="relative aspect-square w-full cursor-pointer z-10"
+        whileHover={{ scale: 1.05, transition: { duration: 0.3 } }}
       >
-        <div className="absolute inset-0 bg-gradient-to-tr from-forest-800 to-sage-500 opacity-90 mix-blend-multiply z-10"></div>
         
-        <Image 
-          src="/tu-foto-pixelart.png" 
-          alt="Miguel Solis"
-          fill
-          className="object-cover z-0 grayscale contrast-125" 
-        />
+        {/* ELIMINADO: El div del gradiente overlay */}
+
+        {/* LIMPIEZA AQUÍ: Quitamos 'bg-forest-900' para que sea transparente */}
+        <div className="relative h-full w-full z-10">
+          <AnimatePresence mode="wait">
+            <motion.div
+              key={currentImageIndex}
+              initial={{ opacity: 0 }}
+              animate={{ opacity: 1 }}
+              exit={{ opacity: 0 }}
+              transition={{ duration: 0.5 }}
+              className="absolute inset-0 h-full w-full"
+            >
+               <Image 
+                 src={avatarImages[currentImageIndex]} 
+                 alt={`Miguel Solis avatar ${currentImageIndex + 1}`}
+                 fill
+                 // 'object-contain' asegura que se vea la imagen completa sin recortarse
+                 className="object-contain contrast-110 pixelated drop-shadow-2xl" 
+                 priority={currentImageIndex === 0}
+               />
+            </motion.div>
+          </AnimatePresence>
+        </div>
         
-        <div className="absolute bottom-4 left-4 z-20">
-             <span className="bg-white/20 backdrop-blur-md text-ivory-50 px-3 py-1 rounded-full text-xs font-mono border border-white/30">
-               Based in Peru 🇵🇪
+        {/* Badge de ubicación */}
+        <div className="absolute bottom-4 left-0 right-0 flex justify-center z-30">
+             <span className="bg-forest-900/80 backdrop-blur-md text-ivory-50 px-3 py-1 rounded-full text-xs font-mono border border-white/20 flex items-center gap-2 shadow-lg">
+               <span className="relative flex h-2 w-2">
+                 <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-sage-400 opacity-75"></span>
+                 <span className="relative inline-flex rounded-full h-2 w-2 bg-sage-500"></span>
+               </span>
+               Lima, Perú
              </span>
         </div>
       </motion.div>

@@ -24,7 +24,7 @@ export default function Hero() {
         <div className="space-y-8 order-2 lg:order-1">
           
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <StatusBadge text="DISPONIBLE PARA PROYECTOS" />
+            <StatusBadge text="AVAILABLE FOR WORK" />
           </motion.div>
 
           <div className="space-y-2">
