@@ -36,7 +36,7 @@ export default function Hero() {
               Miguel Solis
             </h1>
 
-            <div className="h-16 md:h-20 flex items-center text-3xl md:text-5xl font-bold">
+            <div className="py-2 flex items-center text-3xl md:text-5xl font-bold leading-normal overflow-visible">
               <span className="text-forest-700 mr-3">Soy</span>
 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-coffee-500 to-blush-500">
@@ -44,8 +44,6 @@ export default function Hero() {
                   words={[
                     "Software Engineer",
                     "Full Stack Developer",
-                    "Tech Enthusiast",
-                    "Problem Solver",
                   ]}
                   typingSpeed={100}
                   deletingSpeed={50}
