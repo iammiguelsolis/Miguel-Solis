@@ -1,4 +1,5 @@
 import Hero from "./components/templates/Hero";
+import About from "./components/templates/About";
 import Experience, { ExperienceItem } from "./components/templates/Experience";
 import TechStack from "./components/templates/TechStack";
 import Projects from "./components/templates/Projects";
@@ -81,6 +82,7 @@ export default async function Home() {
       <Experience experiences={experiences} />
       <TechStack />
       <Projects projects={projects} technologies={technologies} />
+      <About />
     </>
   );
 }
