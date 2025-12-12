@@ -83,7 +83,7 @@ export default async function Home() {
       <Experience experiences={experiences} />
       <TechStack />
       <Projects projects={projects} technologies={technologies} />
-      <About />
+      <About imageUrl="/Foto.jpg" />
       <Footer />
     </>
   );

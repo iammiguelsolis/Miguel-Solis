@@ -69,16 +69,29 @@ export default function Hero() {
             className="flex flex-col sm:flex-row gap-6 items-start sm:items-center pt-4"
           >
             <div className="flex gap-4">
-              <Button variant="primary" size="lg">Contáctame</Button>
-              <Button variant="outline" size="lg">Descargar CV</Button>
+              <a
+                href="https://wa.me/51950755220?text=Hola%20Miguel,%20vi%20tu%20portafolio%20y%20me%20gustaría%20contactarte"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center justify-center font-bold rounded-full transition-all duration-200 active:scale-95 bg-sage-600 text-ivory-50 hover:bg-sage-700 hover:shadow-lg px-8 py-4 text-lg"
+              >
+                Contáctame
+              </a>
+              <a
+                href="/Miguel_Solis_CV.pdf"
+                download="Miguel_Solis_CV.pdf"
+                className="inline-flex items-center justify-center font-bold rounded-full transition-all duration-200 active:scale-95 border-2 border-sage-600 text-sage-700 hover:bg-sage-50 px-8 py-4 text-lg"
+              >
+                Descargar CV
+              </a>
             </div>
 
             <div className="hidden sm:block w-px h-12 bg-sage-300 mx-2"></div>
 
             <div className="flex gap-4 text-forest-700">
-              <a href="#" className="hover:text-blush-600 transition-colors hover:scale-110 transform"><Github size={24} /></a>
-              <a href="#" className="hover:text-blush-600 transition-colors hover:scale-110 transform"><Linkedin size={24} /></a>
-              <a href="#" className="hover:text-blush-600 transition-colors hover:scale-110 transform"><Instagram size={24} /></a>
+              <a href="https://github.com/iammiguelsolis" target="_blank" rel="noopener noreferrer" className="hover:text-blush-600 transition-colors hover:scale-110 transform"><Github size={24} /></a>
+              <a href="https://www.linkedin.com/in/miguel-solis-cunza/" target="_blank" rel="noopener noreferrer" className="hover:text-blush-600 transition-colors hover:scale-110 transform"><Linkedin size={24} /></a>
+              <a href="https://www.instagram.com/soli.smiguel" target="_blank" rel="noopener noreferrer" className="hover:text-blush-600 transition-colors hover:scale-110 transform"><Instagram size={24} /></a>
             </div>
           </motion.div>
         </div>
