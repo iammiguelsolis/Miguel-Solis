@@ -67,7 +67,7 @@ export default function About({
         />
       </div>
 
-      <div className="max-w-6xl mx-auto relative z-10">
+      <div className="max-w-6xl mx-auto relative">
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: -20 }}
