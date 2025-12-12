@@ -117,27 +117,6 @@ export default function About({
                 </motion.p>
               ))}
             </div>
-
-            {/* Stats */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
-              transition={{ duration: 0.5, delay: 0.6 }}
-              className="grid grid-cols-3 gap-4 pt-4"
-            >
-              {stats.map((stat, index) => (
-                <div
-                  key={index}
-                  className="text-center p-4 bg-white rounded-xl border border-sage-200 hover:border-coffee-300 hover:shadow-lg transition-all"
-                >
-                  <div className="flex justify-center mb-2 text-coffee-500">
-                    {stat.icon}
-                  </div>
-                  <div className="text-2xl font-bold text-forest-900">{stat.value}</div>
-                  <div className="text-xs text-sage-600">{stat.label}</div>
-                </div>
-              ))}
-            </motion.div>
           </motion.div>
 
           {/* Image */}
@@ -174,7 +153,7 @@ export default function About({
                 transition={{ duration: 3, repeat: Infinity, ease: "easeInOut" }}
                 className="absolute -bottom-4 -right-4 px-4 py-2 bg-forest-900 text-ivory-50 rounded-xl font-semibold shadow-lg"
               >
-                💻 {yearsExperience}+ años
+                💼 Activo
               </motion.div>
             </div>
           </motion.div>

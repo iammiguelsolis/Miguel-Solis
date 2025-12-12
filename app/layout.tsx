@@ -3,6 +3,7 @@ import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import LanguageToggle from "./components/atoms/LanguageToggle";
+import Navbar from "./components/templates/Navbar";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -23,9 +24,11 @@ export default function RootLayout({ children, }: Readonly<{ children: React.Rea
   return (
     <html lang='es' className={`${geistSans.variable} ${geistMono.variable} overflow-x-hidden`}>
       <body className='antialiased'>
+        <Navbar />
         <main>{children}</main>
         <LanguageToggle />
       </body>
     </html>
   );
 }
+

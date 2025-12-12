@@ -3,6 +3,7 @@ import About from "./components/templates/About";
 import Experience, { ExperienceItem } from "./components/templates/Experience";
 import TechStack from "./components/templates/TechStack";
 import Projects from "./components/templates/Projects";
+import Footer from "./components/templates/Footer";
 import { client } from "@/sanity/lib/client";
 
 // Types
@@ -83,6 +84,7 @@ export default async function Home() {
       <TechStack />
       <Projects projects={projects} technologies={technologies} />
       <About />
+      <Footer />
     </>
   );
 }
