@@ -8,7 +8,6 @@ interface AboutProps {
   name: string;
   role: string;
   location: string;
-  yearsExperience: number;
   bio: string[];
   highlights: string[];
   imageUrl?: string;
@@ -31,15 +30,14 @@ function HighlightText({ text, highlights }: { text: string; highlights: string[
 
 export default function About({
   name = "Miguel Solis",
-  role = "Software Engineer",
+  role = "Practicante de Ingeniería de Software · Estudiante en UNMSM",
   location = "Perú",
-  yearsExperience = 2,
   bio = [
-    "Soy un desarrollador de software apasionado por crear experiencias digitales excepcionales. Mi experiencia incluye trabajar con tecnologías como React, Node.js, Python y servicios en la nube como AWS.",
-    "Algunos de mis logros incluyen colaborar en proyectos innovadores, desarrollar software reconocido y trabajar con modelos de lenguaje (LLMs) para extender capacidades de sistemas.",
-    "Más allá del trabajo profesional, me apasiona el voluntariado y explorar proyectos innovadores. Mi objetivo es aprovechar mis habilidades para crear soluciones que aborden problemas del mundo real.",
+    "Estudio Ingeniería de Software en la Universidad Nacional Mayor de San Marcos y trabajo como Practicante Pre Profesional de Ingeniería de Software en Mibanco.",
+    "Me enfoco en backend, automatización QA, DevSecOps y cloud. Utilizo GitHub Actions, GitHub Agents, Azure Logic Apps, Azure Functions, Jira/Xray y Python para contribuir a procesos más eficientes y trazables.",
+    "Uno de mis proyectos principales es TestifyQA, un agente que ayuda a generar casos de prueba a partir de historias de usuario, criterios de aceptación y documentación. También he colaborado en ApiBro, una iniciativa para apoyar la creación de microservicios desde contratos y definiciones funcionales.",
   ],
-  highlights = ["React", "Node.js", "Python", "AWS", "LLMs"],
+  highlights = ["Ingeniería de Software", "Mibanco", "GitHub Actions", "GitHub Agents", "Azure", "TestifyQA", "ApiBro"],
   imageUrl,
 }: Partial<AboutProps>) {
   const sectionRef = useRef(null);
@@ -47,9 +45,9 @@ export default function About({
 
   // Stats cards
   const stats = [
-    { icon: <Briefcase className="w-5 h-5" />, label: "Años de experiencia", value: `${yearsExperience}+` },
-    { icon: <GraduationCap className="w-5 h-5" />, label: "Proyectos completados", value: "15+" },
-    { icon: <Heart className="w-5 h-5" />, label: "Clientes satisfechos", value: "10+" },
+    { icon: <Briefcase className="w-5 h-5" />, label: "Experiencia actual", value: "Mibanco" },
+    { icon: <GraduationCap className="w-5 h-5" />, label: "Universidad", value: "UNMSM" },
+    { icon: <Heart className="w-5 h-5" />, label: "Certificación", value: "GH-200" },
   ];
 
   return (

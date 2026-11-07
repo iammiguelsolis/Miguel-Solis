@@ -9,7 +9,8 @@ import { Github, Linkedin, Instagram } from "lucide-react";
 
 export default function Hero() {
   return (
-    <section className="relative min-h-screen flex items-center justify-center bg-ivory-50 px-6 py-20 overflow-hidden">
+    <section className="holiday-hero relative min-h-screen flex items-center justify-center bg-ivory-50 px-6 py-28 overflow-hidden">
+      <div className="holiday-lights" aria-hidden="true">{Array.from({ length: 16 }, (_, i) => <span key={i} />)}</div>
 
       <div className="absolute top-0 right-0 -z-10 opacity-30">
         <motion.div
@@ -22,9 +23,10 @@ export default function Hero() {
       <div className="max-w-7xl mx-auto w-full grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
 
         <div className="space-y-8 order-2 lg:order-1">
+          <p className="holiday-label">✦ Edición navideña · Aprender, crear y compartir</p>
 
           <motion.div initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-            <StatusBadge text="DISPONIBLE PARA TRABAJAR" />
+            <StatusBadge text="PRACTICANTE DE INGENIERÍA DE SOFTWARE · MIBANCO" />
           </motion.div>
 
           <div className="space-y-2">
@@ -33,17 +35,18 @@ export default function Hero() {
             </h2>
 
             <h1 className="text-5xl md:text-7xl font-extrabold text-forest-900 tracking-tight leading-none mb-4">
-              Miguel Solis
+              Miguel Alonso Solis Cunza
             </h1>
 
-            <div className="py-2 flex items-center text-3xl md:text-5xl font-bold leading-normal overflow-visible">
+            <div className="py-2 flex flex-wrap items-center text-2xl md:text-3xl font-bold leading-normal overflow-visible">
               <span className="text-forest-700 mr-3">Soy</span>
 
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-coffee-500 to-blush-500">
                 <TypewriterText
                   words={[
-                    "Software Engineer",
-                    "Full Stack Developer",
+                    "Software Engineer in Training",
+                    "Backend Developer",
+                    "Automation & DevSecOps",
                   ]}
                   typingSpeed={100}
                   deletingSpeed={50}
@@ -59,7 +62,7 @@ export default function Hero() {
             transition={{ delay: 0.5, duration: 0.8 }}
             className="text-lg text-forest-700 max-w-lg leading-relaxed"
           >
-            Creo experiencias digitales hermosas y funcionales. Me especializo en dar vida a las ideas a través de código limpio y diseño cuidadoso.
+            Estudiante de Ingeniería de Software en la UNMSM y practicante en Mibanco. Construyo soluciones de backend y automatización con foco en QA, DevSecOps, cloud e inteligencia artificial aplicada.
           </motion.p>
 
           <motion.div

@@ -1,4 +1,5 @@
 import Hero from "./components/templates/Hero";
+import SeasonalHighlights from "./components/templates/SeasonalHighlights";
 import About from "./components/templates/About";
 import Experience, { ExperienceItem } from "./components/templates/Experience";
 import TechStack from "./components/templates/TechStack";
@@ -37,7 +38,24 @@ async function getExperiences(): Promise<ExperienceItem[]> {
     description,
     link
   }`;
-  return await client.fetch(query);
+  const experiences = await client.fetch<ExperienceItem[]>(query);
+  return experiences.length ? experiences : [
+    {
+      _id: "mibanco",
+      jobTitle: "Practicante Pre Profesional de Ingeniería de Software",
+      company: "Mibanco",
+      startDate: "2026-03-01",
+      description: "Participo en iniciativas de desarrollo de software y automatización orientadas a mejorar la eficiencia, trazabilidad y estandarización de procesos QA. He colaborado en soluciones con GitHub Agents, Jira y Xray.",
+    },
+    {
+      _id: "uppersap",
+      jobTitle: "SAP BTP Developer Trainee",
+      company: "UpperSAP",
+      startDate: "2026-01-01",
+      endDate: "2026-03-01",
+      description: "Experiencia formativa como desarrollador trainee en SAP Business Technology Platform.",
+    },
+  ];
 }
 
 async function getProjects(): Promise<Project[]> {
@@ -80,6 +98,7 @@ export default async function Home() {
   return (
     <>
       <Hero />
+      <SeasonalHighlights />
       <Experience experiences={experiences} />
       <TechStack />
       <Projects projects={projects} technologies={technologies} />

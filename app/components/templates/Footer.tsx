@@ -1,13 +1,12 @@
 "use client";
 import React from "react";
 import { motion } from "framer-motion";
-import { Github, Linkedin, Instagram, Mail, Heart, ArrowUp } from "lucide-react";
+import { Github, Linkedin, Instagram, Heart, ArrowUp } from "lucide-react";
 
 const socialLinks = [
-  { icon: <Github className="w-5 h-5" />, href: "#", label: "GitHub" },
-  { icon: <Linkedin className="w-5 h-5" />, href: "#", label: "LinkedIn" },
-  { icon: <Instagram className="w-5 h-5" />, href: "#", label: "Instagram" },
-  { icon: <Mail className="w-5 h-5" />, href: "mailto:tu@email.com", label: "Email" },
+  { icon: <Github className="w-5 h-5" />, href: "https://github.com/iammiguelsolis", label: "GitHub" },
+  { icon: <Linkedin className="w-5 h-5" />, href: "https://www.linkedin.com/in/miguel-solis-cunza/", label: "LinkedIn" },
+  { icon: <Instagram className="w-5 h-5" />, href: "https://www.instagram.com/soli.smiguel", label: "Instagram" },
 ];
 
 const navLinks = [
@@ -39,7 +38,7 @@ export default function Footer() {
               Miguel Solis
             </h3>
             <p className="text-sage-300 text-sm leading-relaxed max-w-xs">
-              Desarrollador de software apasionado por crear experiencias digitales excepcionales.
+              Estudiante de Ingeniería de Software en la UNMSM y practicante en Mibanco. Backend, QA, DevSecOps y cloud.
             </p>
           </div>
 

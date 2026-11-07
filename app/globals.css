@@ -216,3 +216,23 @@ body::before {
   opacity: 0.08;
   background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E");
 }
+/* Seasonal accents retain the portfolio's warm, readable surfaces. */
+:root {
+  --color-ivory-50: #fffaf1;
+  --color-sage-600: #28634b;
+  --color-sage-700: #204e3c;
+  --color-forest-900: #123e30;
+  --color-coffee-500: #98641f;
+  --color-coffee-600: #85521a;
+  --color-blush-500: #b83d46;
+  --color-blush-600: #a12734;
+}
+.holiday-hero { background-image: radial-gradient(ellipse at 90% 20%, #dae8dc 0, transparent 45%), radial-gradient(ellipse at 5% 95%, #f5e2c5 0, transparent 40%); }
+.holiday-label { color: #92333b; font-size: .75rem; font-weight: 700; letter-spacing: .1em; text-transform: uppercase; }
+.holiday-highlights { background: radial-gradient(ellipse at top right, #2b644a, transparent 65%), #123e30; }
+.holiday-lights { position: absolute; inset: 0 0 auto; display: flex; justify-content: space-around; height: 30px; border-top: 2px solid #31563e; pointer-events: none; }
+.holiday-lights span { width: 9px; height: 15px; border-radius: 3px 3px 50% 50%; background: #b83d46; box-shadow: 0 3px 18px #b83d4660; animation: holiday-glow 3s ease-in-out infinite alternate; }
+.holiday-lights span:nth-child(3n) { background: #c79a42; box-shadow: 0 3px 18px #c79a4270; animation-delay: -1s; }
+.holiday-lights span:nth-child(3n + 1) { background: #28634b; box-shadow: 0 3px 18px #28634b60; animation-delay: -2s; }
+@keyframes holiday-glow { from { opacity: .65; } to { opacity: 1; } }
+@media (prefers-reduced-motion: reduce) { .holiday-lights span { animation: none; } html { scroll-behavior: auto; } }

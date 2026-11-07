@@ -116,12 +116,12 @@ const techCategories = {
     name: "Cloud & DevOps",
     icon: <Cloud className="w-5 h-5" />,
     techs: [
-      { name: "AWS", icon: "aws" },
       { name: "Azure", icon: "azure" },
       { name: "Docker", icon: "docker" },
-      { name: "Vercel", icon: "vercel" },
       { name: "Git", icon: "git" },
       { name: "GitHub", icon: "github" },
+      { name: "GitHub Actions", icon: "github" },
+      { name: "Azure Functions & Logic Apps", icon: "azure" },
     ],
   },
   tools: {
@@ -273,7 +273,7 @@ export default function TechStack() {
               <AnimatePresence mode="popLayout">
                 {visibleTechs.map((tech, index) => (
                   <TechCard
-                    key={`${tech.icon}-${tech.category}`}
+                    key={`${tech.name}-${tech.category}`}
                     name={tech.name}
                     icon={tech.icon}
                     category={tech.category}

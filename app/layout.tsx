@@ -16,8 +16,8 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: 'Miguel Solis | Desarrollador Full Stack',
-  description: 'Programador Full Stack con experiencia en el desarrollo de aplicaciones web escalables y centradas en el usuario. Estudiante de Ingeniería de Software en la Universidad Nacional Mayor de San Marcos (quinto superior). Apasionado por crear soluciones eficientes, trabajar en equipo y aprender continuamente.',
+  title: 'Miguel Alonso Solis Cunza | Software Engineer in Training',
+  description: 'Estudiante de Ingeniería de Software en la UNMSM y practicante en Mibanco. Enfocado en backend, automatización QA, DevSecOps, cloud y GitHub Agents. Certificado GitHub Actions GH-200.',
 }
 
 export default function RootLayout({ children, }: Readonly<{ children: React.ReactNode }>) {
